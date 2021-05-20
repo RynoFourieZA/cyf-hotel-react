@@ -1,12 +1,11 @@
 import React from "react";
 import SearchButton from "./SearchButton";
+import Heading from "./Heading";
 
 const Search = () => {
   return (
     <div className="search">
-      <div className="page-header">
-        <h4 className="text-left">Search Bookings</h4>
-      </div>
+      <Heading />
       <div className="row search-wrapper">
         <div className="col">
           <form className="form-group search-box">

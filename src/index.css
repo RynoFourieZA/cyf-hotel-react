@@ -24,3 +24,13 @@ body {
 .search-row input {
   margin-right: 10px;
 }
+
+#hotel-img {
+  height: 100px;
+  width: 100px;
+}
+
+.card-img-top {
+  height: 200px;
+  width: 285px;
+}
