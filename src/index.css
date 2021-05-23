@@ -34,3 +34,7 @@ body {
   height: 200px;
   width: 285px;
 }
+
+.footer-container {
+  padding-top: 60px;
+}
