@@ -33,8 +33,8 @@ function SearchResults(props) {
         </tr>
       </thead>
       <tbody>
-        {data.map(dataEl => (
-          <tr>
+        {data.map((dataEl, index) => (
+          <tr key={index}>
             <th scope="row">{dataEl.id}</th>
             <td>{dataEl.title}</td>
             <td>{dataEl.firstName}</td>
