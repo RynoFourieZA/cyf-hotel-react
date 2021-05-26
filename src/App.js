@@ -10,7 +10,6 @@ const App = () => {
     <div className="App">
       <header className="App-header">CYF Hotel</header>
       <Bookings />
-      <SearchResults />
       <TouristInfoCards />
       <Footer />
     </div>
