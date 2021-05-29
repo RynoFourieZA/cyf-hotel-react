@@ -1,8 +1,5 @@
 import React from "react";
-
-// Storing  dates in a varibale, adding the moments.js library and using the .diff() to compare dates
-// let startDate = moment(checkInDate);
-// let endDate = moment([checkOutDate]);
+import moment from "moment";
 
 // var a = moment([2007, 0, 29]);
 // var b = moment([2007, 0, 28]);
@@ -11,6 +8,8 @@ import React from "react";
 
 function SearchResults(props) {
   const data = props.data;
+  let startDate = moment(data.checkInDate);
+  let endDate = moment(data.checkOutDate);
   return (
     <table class="table">
       <thead class="thead-dark">
@@ -34,6 +33,8 @@ function SearchResults(props) {
       </thead>
       <tbody>
         {data.map((dataEl, index) => (
+          // Storing  dates in a varibale, adding the moments.js library and using the .diff() to compare dates
+
           <tr key={index}>
             <th scope="row">{dataEl.id}</th>
             <td>{dataEl.title}</td>
@@ -43,6 +44,13 @@ function SearchResults(props) {
             <td>{dataEl.roomId}</td>
             <td>{dataEl.checkInDate}</td>
             <td>{dataEl.checkOutDate}</td>
+            {console.log(endDate)}
+            <td>
+              {moment(dataEl.checkOutDate).diff(
+                moment(dataEl.checkInDate),
+                "days"
+              )}
+            </td>
           </tr>
         ))}
       </tbody>
