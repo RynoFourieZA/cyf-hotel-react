@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import moment from "moment";
+import App from "./App.css";
 
 // var a = moment([2007, 0, 29]);
 // var b = moment([2007, 0, 28]);
@@ -7,12 +8,14 @@ import moment from "moment";
 // console.log("a-b", a.diff(b, 'days'));
 
 function SearchResults(props) {
+  const [color, setColor] = useState([]);
   const data = props.data;
+
   moment(data.checkInDate);
   moment(data.checkOutDate);
   return (
-    <table class="table">
-      <thead class="thead-dark">
+    <table className="table">
+      <thead className="thead-dark">
         <tr>
           <th scope="col">Id</th>
           <th scope="col">Title</th>
@@ -33,7 +36,7 @@ function SearchResults(props) {
       </thead>
       <tbody>
         {data.map((dataEl, index) => (
-          // Storing  dates in a varibale, adding the moments.js library and using the .diff() to compare dates
+          // Storing  dates in a variable, adding the moments.js library and using the .diff() to compare dates
 
           <tr key={index}>
             <th scope="row">{dataEl.id}</th>
