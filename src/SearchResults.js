@@ -8,8 +8,8 @@ import moment from "moment";
 
 function SearchResults(props) {
   const data = props.data;
-  let startDate = moment(data.checkInDate);
-  let endDate = moment(data.checkOutDate);
+  moment(data.checkInDate);
+  moment(data.checkOutDate);
   return (
     <table class="table">
       <thead class="thead-dark">
@@ -44,7 +44,6 @@ function SearchResults(props) {
             <td>{dataEl.roomId}</td>
             <td>{dataEl.checkInDate}</td>
             <td>{dataEl.checkOutDate}</td>
-            {console.log(endDate)}
             <td>
               {moment(dataEl.checkOutDate).diff(
                 moment(dataEl.checkInDate),
