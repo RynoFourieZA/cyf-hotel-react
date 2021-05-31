@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import moment from "moment";
-import App from "./App.css";
+import "./App.css";
 
 // var a = moment([2007, 0, 29]);
 // var b = moment([2007, 0, 28]);
@@ -9,7 +9,11 @@ import App from "./App.css";
 
 function SearchResults(props) {
   const [color, setColor] = useState([]);
+
   const data = props.data;
+  function onClickColor() {
+    setColor("red");
+  }
 
   moment(data.checkInDate);
   moment(data.checkOutDate);
@@ -38,7 +42,7 @@ function SearchResults(props) {
         {data.map((dataEl, index) => (
           // Storing  dates in a variable, adding the moments.js library and using the .diff() to compare dates
 
-          <tr key={index}>
+          <tr key={index} className={color} onClick={onClickColor}>
             <th scope="row">{dataEl.id}</th>
             <td>{dataEl.title}</td>
             <td>{dataEl.firstName}</td>

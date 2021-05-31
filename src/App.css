@@ -43,6 +43,10 @@ tr {
   color: #5b5757;
 }
 
+.red {
+  color: red;
+}
+
 .results {
   padding-top: 15px;
 }

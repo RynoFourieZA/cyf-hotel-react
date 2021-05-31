@@ -7,7 +7,7 @@ function TouristInfoCards() {
         <img
           src="https://peoplemakeglasgow.com/images/Things_to_do/Top_attractions/Main-image-995.JPG"
           class="card-img-top"
-          alt="Image of glasgow Tower"
+          alt="Glasgow Tower"
         />
         <div class="card-body">
           <h5 class="card-title">Glasgow Visitor Information</h5>
