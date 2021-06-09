@@ -14,7 +14,7 @@ const Bookings = () => {
     <div className="App-content">
       <div className="container">
         <Search search={search} />
-        <SearchResults data={bookings} />
+        <SearchResults bookings={bookings} />
       </div>
     </div>
   );

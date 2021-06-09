@@ -7,16 +7,19 @@ import "./App.css";
 // a.diff(b, 'days') // 1
 // console.log("a-b", a.diff(b, 'days'));
 
-function SearchResults(props) {
+function SearchResults({ bookings }) {
   const [color, setColor] = useState([]);
 
-  const data = props.data;
-  function onClickColor() {
-    setColor("red");
+  function onClickColor(id) {
+    if (color.includes(id)) {
+      setColor(color.filter(el => el !== id));
+    } else {
+      setColor(color.concat(id));
+    }
   }
 
-  moment(data.checkInDate);
-  moment(data.checkOutDate);
+  moment(bookings.checkInDate);
+  moment(bookings.checkOutDate);
   return (
     <table className="table">
       <thead className="thead-dark">
@@ -39,26 +42,35 @@ function SearchResults(props) {
         </tr>
       </thead>
       <tbody>
-        {data.map((dataEl, index) => (
+        {bookings.map((dataEl, index) => {
           // Storing  dates in a variable, adding the moments.js library and using the .diff() to compare dates
-
-          <tr key={index} className={color} onClick={onClickColor}>
-            <th scope="row">{dataEl.id}</th>
-            <td>{dataEl.title}</td>
-            <td>{dataEl.firstName}</td>
-            <td>{dataEl.surname}</td>
-            <td>{dataEl.email}</td>
-            <td>{dataEl.roomId}</td>
-            <td>{dataEl.checkInDate}</td>
-            <td>{dataEl.checkOutDate}</td>
-            <td>
-              {moment(dataEl.checkOutDate).diff(
-                moment(dataEl.checkInDate),
-                "days"
-              )}
-            </td>
-          </tr>
-        ))}
+          return (
+            <tr
+              key={index}
+              style={
+                color.includes(dataEl.id)
+                  ? { backgroundColor: "red" }
+                  : { backgroundColor: "white" }
+              }
+              onClick={() => onClickColor(dataEl.id)}
+            >
+              <th scope="row">{dataEl.id}</th>
+              <td>{dataEl.title}</td>
+              <td>{dataEl.firstName}</td>
+              <td>{dataEl.surname}</td>
+              <td>{dataEl.email}</td>
+              <td>{dataEl.roomId}</td>
+              <td>{dataEl.checkInDate}</td>
+              <td>{dataEl.checkOutDate}</td>
+              <td>
+                {moment(dataEl.checkOutDate).diff(
+                  moment(dataEl.checkInDate),
+                  "days"
+                )}
+              </td>
+            </tr>
+          );
+        })}
       </tbody>
     </table>
   );
