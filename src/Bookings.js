@@ -4,19 +4,31 @@ import SearchResults from "./SearchResults.js";
 
 const Bookings = () => {
   const [bookings, setBookings] = useState([]);
-  console.log("First render: ", useEffect);
-  console.log("The Bookings component: ", bookings);
+
   const search = searchVal => {
-    console.info("TO DO!", searchVal);
+    const newBookings = bookings;
+
+    // console.info("TO DO!", searchVal);
+    let filterBookings = newBookings.filter(customer => {
+      if (
+        searchVal.toLowerCase() === customer.firstName.toLowerCase() ||
+        searchVal.toLowerCase() === customer.surname.toLowerCase()
+      ) {
+        return customer;
+      }
+    });
+
+    setBookings(filterBookings);
   };
+
   useEffect(() => {
     fetch("https://cyf-react.glitch.me")
       .then(res => res.json())
       .then(data => {
-        console.log("This is my data: ", data); //checking what my json file is
         setBookings(data);
       });
   }, []);
+
   return (
     <div className="App-content">
       <div className="container">
