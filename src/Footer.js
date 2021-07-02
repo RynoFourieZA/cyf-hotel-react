@@ -8,14 +8,10 @@ function Footer() {
     "0123 456789"
   ];
   return (
-    <footer
-      className="card-body"
-      className="footer-container"
-      class="d-flex justify-content-center"
-    >
+    <footer className="card-body footer-container d-flex justify-content-center">
       <ul>
         {footerArr.map((nameEl, index) => (
-          <li class="card-text" key={index}>
+          <li className="card-text" key={index}>
             {" "}
             {nameEl}
           </li>
