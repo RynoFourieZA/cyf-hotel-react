@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 
 const CustomerProfile = ({ id }) => {
-  const [recordedId, setRecordedId] = useState([]);
+  // const [recordedId, setRecordedId] = useState([]);
 
-  return <div>{id ? <p>Customer {id} profile</p> : null}</div>;
+  return (
+    <div>
+      <p>Customer {id} profile</p>
+    </div>
+  );
 };
 
 export default CustomerProfile;

@@ -10,7 +10,7 @@ import CustomerProfile from "./CustomerProfile";
 
 function SearchResults({ bookings }) {
   const [color, setColor] = useState([]);
-  const [id, setId] = useState([]);
+  const [id, setId] = useState(0);
 
   function onClickColor(id) {
     if (color.includes(id)) {
